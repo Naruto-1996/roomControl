@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="data"
+      type="com.e.myapplication.model.RoomItem" />
+
+  </data>
+
+  <LinearLayout
+    android:id="@+id/linear"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+      android:layout_marginTop="10dp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+
+      <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:imageUrl="@{data.imageUrl}"
+        android:src="@mipmap/ic_launcher" />
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="1"
+          android:paddingStart="15dp"
+          android:paddingEnd="8dp"
+          android:text="@{data.name}" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="1"
+          android:paddingStart="15dp"
+          android:paddingEnd="8dp"
+          android:text="@{data.description}" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="1"
+          android:paddingStart="15dp"
+          android:paddingEnd="8dp"
+          android:text="@{data.status ? `在线` : `离线`}"
+          android:textColor="@{data.status ? @color/green : @color/gray}" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="1"
+          android:paddingStart="15dp"
+          android:paddingEnd="8dp"
+          android:text="@{data.connect ? `已连接` : `未连接`}"
+          android:textColor="@{data.connect ? @color/green : @color/gray}" />
+      </LinearLayout>
+    </LinearLayout>
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:layout_marginTop="12dp"
+      android:background="@color/gray"/>
+
+  </LinearLayout>
+
+</layout>
